@@ -5,4 +5,9 @@ export default defineSchema({
     author: s.string(),
     body: s.string(),
   }),
+  logs: defineTable({
+    timestamp: s.string(),
+    sender: s.string(),
+    message: s.string(),
+  }),
 })
