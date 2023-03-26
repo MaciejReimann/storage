@@ -1,6 +1,6 @@
 {
   "crons": [{
     "path": "/api/real-estates/actions/harvest",
-    "schedule": "30 17 * * *"
+    "schedule": "45 17 * * *"
   }]
 }
