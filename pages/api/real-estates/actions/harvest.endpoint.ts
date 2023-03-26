@@ -3,6 +3,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import nc from 'next-connect'
 import { ConvexHttpClient } from 'convex/browser'
 
+import { harvest } from '../crawler/harvest'
+
 const dbClient = new ConvexHttpClient(
   process.env.NEXT_PUBLIC_CONVEX_URL as string
 )
@@ -24,7 +26,9 @@ const handler = nc<NextApiRequest, NextApiResponse>({
       message: `some message`,
     })
 
-    res.status(200).send(logs)
+    const data = await harvest()
+
+    res.status(200).send(data)
   })
   .post((req, res) => {
     res.json({ hello: 'world' })
